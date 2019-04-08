@@ -16,11 +16,13 @@
 <body>
 
     <div class="container-fluid" id="wrapper">
-        <!--
+        <div class="row">
+            <!--
             This row contains the entire document, since containers can be nested that's not a problem.
             This is necesary so that the sidebar envelops the entirety of the left side of the screen.
-        -->
-        <div class="row">
+            -->
+
+
 
             <!-- Sidebar -->
             <!-- 
@@ -67,23 +69,23 @@
             <!--
                 This column contains the top navbar, and the entire document after that, it dynamically adjusts to the sidebar's shennanigans
             -->
-            <div class="col bg-white border-left order-first order-last" id="page-content-wrapper">
+            <div class="col bg-white border-left order-last" id="page-content-wrapper">
 
                 <!-- Navbar -->
                 <div class="container-fluid sticky-top">
                     <div class="row navbar navbar-light border-bottom bg-light">
-                        <div class="col-4 col-md-2 mr-auto d-none d-md-block order-md-first">
+                        <div class="col-1 col-md-2 mr-auto d-none d-md-block order-md-first">
                             <button class="navbar-toggler" type="button" id="menu-toggle">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                         </div>
-                        <div class="col-4 col-md-2 col-lg-2 col-xl-1 ml-auto order-md-last py-2" id="sign-out-button">
-                            <button class="btn btn-danger" type="button">
-                                Leave <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+                        <div class="col-5 col-sm-4 col-md-2 col-lg-2 col-xl-1 ml-auto order-last py-2" id="sign-out-button">
+                            <button class="btn btn-md btn-danger" type="button">
+                                Leave <i class="fa fa-sign-out-alt fa-lg ml-1 mr-0" aria-hidden="true"></i>
                             </button>
                         </div>
-                        <div class="col-md-6 mx-auto text-center py-2">
-                            <h1>
+                        <div class="col-7 col-md-6 mx-auto text-center pt-2 py-md-2">
+                            <h1 id="main-title">
                                 Evaluación
                             </h1>
                         </div>
@@ -132,8 +134,7 @@
                             </h2>
                         </div>
                         <!-- Group Options -->
-                        <div class="col-12 col-sm-8 col-md-4 col-lg-6 ml-0 pt-1">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <div class="col-12 col-sm-8 col-md-4 col-lg-6 btn-group-toggle ml-0 pt-1" data-toggle="buttons">
                                 <label class="btn btn-outline-info btn-lg">
                                     <input type="radio" name="courses" id="option1">
                                     Grupo 1
@@ -150,7 +151,6 @@
                                     <input type="radio" name="courses" id="option4">
                                     Grupo 4
                                 </label>
-                            </div>
                         </div>
                         <!-- Edit Groups -->
                         <div class="col-4 col-sm-2 col-lg-1 ml-auto py-1">
@@ -170,7 +170,7 @@
                         </div>
                         <!-- Rubric Options -->
                         <div class="col-8 col-md-4 col-lg-6 ml-0 py-1">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <div class="btn-group-toggle" data-toggle="buttons">
                                 <label class="btn btn-outline-info btn-lg">
                                     <input type="radio" name="rubrics" id="option1">
                                     1
@@ -224,9 +224,11 @@
                     </div>
                     <!-- /Status Locker-->
 
-                    <!-- Evaluation -->
+                    <!-- Evaluation Info Cards -->
                     <div class="row">
-                        <div class="container-fluid mx-5 mt-4 px-0 card-deck">
+                        <div class="container-fluid mx-0 mt-4 px-0 card-columns">
+
+                            <!-- Start Date Card-->
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">
@@ -250,6 +252,9 @@
                                     </ul>
                                 </div>
                             </div>
+                            <!-- /Start Date Card -->
+
+                            <!-- End Date Card -->
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">
@@ -273,6 +278,9 @@
                                     </ul>
                                 </div>
                             </div>
+                            <!-- /End Date Card -->
+
+                            <!-- Expected Duration Card -->
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">
@@ -296,6 +304,9 @@
                                     </ul>
                                 </div>
                             </div>
+                            <!-- /Expected Duration Card-->
+
+                            <!-- Register Duration Card -->
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">
@@ -319,6 +330,9 @@
                                     </ul>
                                 </div>
                             </div>
+                            <!-- /Register Duration Card -->
+
+                            <!-- Evaluators Card -->
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">
@@ -350,10 +364,15 @@
                                     </ul>
                                 </div>
                             </div>
+                            <!-- /Evaluators Card -->
+
                         </div>
                     </div>
+                    <!-- /Evaluation Info Cards -->
+
+                    <!-- Rubric Table -->
                     <div class="row">
-                        <div class="container-fluid mx-5 mt-4 px-0 border btn-group btn-group-toggle" data-toggle="buttons" id="rubric-description-container">
+                        <div class="container-fluid px-0 mt-4 px-0 border btn-group btn-group-toggle" data-toggle="buttons" id="rubric-description-container">
                             <table class="table table-responsive-xl table-stripped" id="rubric-description-table">
                                 <thead class="thead-light" id="rubric-description-table-header">
                                     <tr class="text-center">
@@ -823,13 +842,14 @@
                             </table>
                         </div>
                     </div>
-                    <!-- /Evaluation -->
+                    <!-- /Rubric Table -->
 
                 </div>
                 <!-- /Page -->
 
             </div>
             <!-- /Content -->
+            
         </div>
     </div>
     
