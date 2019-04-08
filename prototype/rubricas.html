@@ -19,10 +19,10 @@
     <div class="border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Servicios</div>
       <div class="list-group list-group-flush">
-        <nav class="list-group-item list-group-item-action selected"> <a href=#> Evaluaciones</a> </nav>
+        <nav class="list-group-item list-group-item-action"> <a href=#> Evaluaciones</a> </nav>
         <nav class="list-group-item list-group-item-action"> <a href=#> Cursos</a> </nav>
         <nav class="list-group-item list-group-item-action"> <a href=#> Evaluadores</a> </nav>
-        <nav class="list-group-item list-group-item-action"> <a href=#> Rúbricas</a> </nav>
+        <nav class="list-group-item list-group-item-action selected"> <a href=#> Rúbricas</a> </nav>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -31,9 +31,9 @@
     <div id="page-content-wrapper">
       <div class="row top-bar fixed d-flex justify-content-between border-bottom" >
         <div class="col-4 col-sm-3 col-lg-3">
-  		    <form class="form-inline">
-  	        	<button class="btn btn-info" id="menu-toggle"> Mostrar Sidebar </button>
-  	        </form>
+          <form class="form-inline">
+              <button class="btn btn-info" id="menu-toggle"> Mostrar Sidebar </button>
+            </form>
         </div>
         <div class="d-flex col-8 col-sm-6 col-lg-4">
           <form class="form-inline">
@@ -43,50 +43,42 @@
               <button class="btn btn-primary">Cerrar Sesión</button>
           </form>
         </div>
-	    </div>
+      </div>
 
       <div class="container-fluid">
-        <h1 class="mt-4">Evaluaciones</h1>
+        <h1 class="mt-4">Rubricas</h1>
         <div class="table-responsive">
           <table class="table table-striped md-0">
             <thead>
-              <tr>
-                <th scope="col">id</th>
-                <th scope="col">Evaluación</th>
-                <th scope="col">Curso</th>
-                <th scope="col">Código de Curso</th>
-                <th scope="col"> Rubrica </th>
-                <th scope="col">Opciones</th>
+              <tr class="d-flex">
+                <th class="col-1" scope="col">id</th>
+                <th class="col-3" scope="col">Nombre</th>
+                <th class="col-4" scope="col">Fecha de Creación</th>
+                <th class="col-2" scope="col">Opciones</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Evaluacion 1</td>
-                <td>Curso 1</td>
-                <td>CC-3231</td>
-                <td> Rubrica 1 </td>
-                <td> <a href='#'><img src='icon/edit.png' alt='Editar'></a>
+              <tr class="d-flex">
+                <th class="col-1"  scope="row">1</th>
+                <td class="col-3" > Rubrica 1 </td>
+                <td class="col-4" > 24/03/2017 </td>
+                <td class="col-2" ><a href='#'><img src='icon/edit.png' alt='Editar'></a>
                   <a href='#'><img src='icon/delete.png' alt='Borrar'></a>
                   <a href='#'><button class='btn btn-info' id='detalles[1]'> Detalles </button></a></td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Evaluacion 2</td>
-                <td>Curso 2</td>
-                <td>CC-43432</td>
-                <td> Rubrica 2 </td>
-                <td> <a href='#'><img src='icon/edit.png' alt='Editar'></a>
+              <tr class="d-flex">
+                <th class="col-1"  scope="row">2</th>
+                <td class="col-3" > Rubrica 2 </td>
+                <td class="col-4" > 17/08/2018 </td>
+                <td class="col-2" ><a href='#'><img src='icon/edit.png' alt='Editar'></a>
                   <a href='#'><img src='icon/delete.png' alt='Borrar'></a>
                   <a href='#'><button class='btn btn-info' id='detalles[1]'> Detalles </button></a></td>
               </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Evaluacion 3</td>
-                <td>Curso 3</td>
-                <td>CC-12312</td>
-                <td> Rubrica 3 </td>
-                <td> <a href='#'><img src='icon/edit.png' alt='Editar'></a>
+              <tr class="d-flex">
+                <th class="col-1"  scope="row">3</th>
+                <td class="col-3" > Rubrica 3 </td>
+                <td class="col-4" > 12/03/2019 </td>
+                <td class="col-2" ><a href='#'><img src='icon/edit.png' alt='Editar'></a>
                   <a href='#'><img src='icon/delete.png' alt='Borrar'></a>
                   <a href='#'><button class='btn btn-info' id='detalles[1]'> Detalles </button></a></td>
               </tr>
@@ -94,7 +86,7 @@
           </table>
         </div>
         <div id="add-button">
-          <button class="btn btn-info">Añadir Evaluación</button>
+          <button class="btn btn-info">Añadir Rúbrica</button>
         </div>
       </div>
     </div>
@@ -109,8 +101,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <!-- Sidebar Script -->
-  <script src="js/sidebar.js"></script>
+  <!-- Fontawesome's Javascript Dependencies-->
+  <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
 
 </body>
 </html>
