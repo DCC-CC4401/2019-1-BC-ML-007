@@ -9,15 +9,829 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="css/evaluate.css">
     
-    <title>Evaluación</title>
+    <title>Evaluación (Administrador)</title>
 </head>
 <body>
-    
-    <!-- Navigation -->
 
-    
+    <div class="container-fluid" id="wrapper">
+        <!--
+            This row contains the entire document, since containers can be nested that's not a problem.
+            This is necesary so that the sidebar envelops the entirety of the left side of the screen.
+        -->
+        <div class="row">
+
+            <!-- Sidebar -->
+            <!-- 
+                This entire column transitions from hiding on the left of the screen into occupying 25% of it (16.66% on large screens).
+                "border-right" gives it a border line on it's right side.
+                "sidebar-wrapper" is the id javascript targets to toggle it.
+            -->
+            <div class="col-12 col-md-3 col-lg-2 border-right" id="sidebar-wrapper">
+                <!--
+                    Heading
+                -->
+                <h1 class="navbar navbar-light sidebar-heading">
+                    Servicios <button type="button" class="btn bg-light btn-lg navbar-toggler-icon d-md-none" data-toggle="collapse" data-target="#sidebar-items"></button></button>
+                </h1>
+                <!--
+                    Links
+                -->
+                <div class="col-12 list-group list-group-flush collapse show" id="sidebar-items">
+                    <nav class="list-group-item list-group-item-action selected">
+                        <a href="#">
+                            Evaluaciones
+                        </a>
+                    </nav>
+                    <nav class="list-group-item list-group-item-action">
+                        <a href="#">
+                            Cursos
+                        </a>
+                    </nav>
+                    <nav class="list-group-item list-group-item-action">
+                        <a href="#">
+                            Evaluadores
+                        </a>
+                    </nav>
+                    <nav class="list-group-item list-group-item-action">
+                        <a href="#">
+                            Rúbricas
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            <!-- /Sidebar -->
+
+            <!-- Content -->
+            <!--
+                This column contains the top navbar, and the entire document after that, it dynamically adjusts to the sidebar's shennanigans
+            -->
+            <div class="col bg-white border-left order-first order-last" id="page-content-wrapper">
+
+                <!-- Navbar -->
+                <div class="container-fluid sticky-top">
+                    <div class="row navbar navbar-light border-bottom bg-light">
+                        <div class="col-4 col-md-2 mr-auto d-none d-md-block order-md-first">
+                            <button class="navbar-toggler" type="button" id="menu-toggle">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                        <div class="col-4 col-md-2 col-lg-2 col-xl-1 ml-auto order-md-last py-2" id="sign-out-button">
+                            <button class="btn btn-danger" type="button">
+                                Leave <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="col-md-6 mx-auto text-center py-2">
+                            <h1>
+                                Evaluación
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Navbar -->
+
+                <!-- Page -->
+                <div class="container-fluid">
+
+                    <!-- Course Indicator -->
+                    <div class="row border-bottom py-1">
+                        <!-- Title -->
+                        <div class="col-12 col-md-4 col-lg-3 col-xl-2 pt-2 pl-2" id="course-identifier">
+                            <h2>
+                                Código del Curso:
+                            </h2>
+                        </div>
+                        <!-- Course Code -->
+                        <div class="col-8 col-md-4 col-lg-3 col-xl-2 py-1">
+                            <div class="container pl-0 ml-0">
+                                <div class="card">
+                                    <div class="card-body pt-1 pb-0">
+                                        <h2>
+                                            CC4342
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Edit Courses -->
+                        <div class="col-4 col-sm-2 col-lg-1 ml-auto py-1">
+                            <button class="btn btn-warning">
+                                <i class="fa fa-pencil-alt fa-2x"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /Course Indicator -->
+
+                    <!-- Group Selector-->
+                    <div class="row border-bottom bg-light py-1">
+                        <!-- Title -->
+                        <div class="col-12 col-md-4 col-lg-3 col-xl-2 pt-1" id="group-identifier">
+                            <h2>
+                                Grupo:
+                            </h2>
+                        </div>
+                        <!-- Group Options -->
+                        <div class="col-12 col-sm-8 col-md-4 col-lg-6 ml-0 pt-1">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-outline-info btn-lg">
+                                    <input type="radio" name="courses" id="option1">
+                                    Grupo 1
+                                </label>
+                                <label class="btn btn-outline-info btn-lg">
+                                        <input type="radio" name="courses" id="option2">
+                                    Grupo 2
+                                </label>
+                                <label class="btn btn-outline-info btn-lg">
+                                    <input type="radio" name="courses" id="option3">
+                                    Grupo 3
+                                </label>
+                                <label class="btn btn-outline-info btn-lg">
+                                    <input type="radio" name="courses" id="option4">
+                                    Grupo 4
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Edit Groups -->
+                        <div class="col-4 col-sm-2 col-lg-1 ml-auto py-1">
+                            <button class="btn btn-warning">
+                                <i class="fa fa-pencil-alt fa-2x"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /Group Selector -->
+
+                    <!-- Rubric Selector -->
+                    <div class="row border-bottom py-1">
+                        <div class="col-12 col-md-4 col-lg-3 col-xl-2 py-1" id="rubric-identifier">
+                            <h2>
+                                Rúbrica:
+                            </h2>
+                        </div>
+                        <!-- Rubric Options -->
+                        <div class="col-8 col-md-4 col-lg-6 ml-0 py-1">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-outline-info btn-lg">
+                                    <input type="radio" name="rubrics" id="option1">
+                                    1
+                                </label>
+                                <label class="btn btn-outline-info btn-lg">
+                                    <input type="radio" name="rubrics" id="option1">
+                                    2
+                                </label>
+                                <label class="btn btn-outline-info btn-lg">
+                                    <input type="radio" name="rubrics" id="option1">
+                                    3
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Edit Rubrics -->
+                        <div class="col-4 col-sm-2 col-lg-1 ml-auto py-1">
+                            <button class="btn btn-warning">
+                                <i class="fa fa-pencil-alt fa-2x"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /Rubric Selector-->
+
+                    <!-- Status Locker -->
+                    <div class="row border-bottom py-1">
+                        <div class="col-12 col-md-4 col-lg-3 col-xl-2 py-1" id="status-locker">
+                            <h2>
+                                Estado:
+                            </h2>
+                        </div>
+                        <!-- Status -->
+                        <div class="col-9 col-md-4 col-lg-3 col-xl-2 pr-0 py-1">
+                            <div class="container pl-0 ml-0">
+                                <div class="card">
+                                    <div class="card-body pt-1 pb-0">
+                                        <h3>
+                                            Abierto
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Lock Button -->
+                        <div class="btn-group btn-group-toggle col-3 col-md-2 col-lg-1 col-xl-1 pl-0 pr-4 ml-0 py-1" data-toggle="buttons">
+                            <label class="btn btn-toggle btn-outline-danger btn-lg">
+                                <i class="fas fa-lock-open fa-lg">
+                                    <input type="radio" name="lock" id="lock-evaluation">
+                                </i>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /Status Locker-->
+
+                    <!-- Evaluation -->
+                    <div class="row">
+                        <div class="container-fluid mx-5 mt-4 px-0 card-deck">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        Fecha de Inicio
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        13-4-2019
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <ul class="nav nav-pills card-header-pills">
+                                        <li class="nav-item ml-auto">
+                                            <label class="btn btn-warning btn-lg stretched-link">
+                                                <i class="fa fa-pencil-alt fa-lg" aria-hidden="true">
+                                                    <input type="radio" name="crit-1" id="option1">
+                                                </i>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        Fecha de Termino
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        15-4-2019
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <ul class="nav nav-pills card-header-pills">
+                                        <li class="nav-item ml-auto">
+                                            <label class="btn btn-warning btn-lg stretched-link">
+                                                <i class="fa fa-pencil-alt fa-lg" aria-hidden="true">
+                                                    <input type="radio" name="crit-1" id="option1">
+                                                </i>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        Duración Esperada
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        7:00
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <ul class="nav nav-pills card-header-pills">
+                                        <li class="nav-item ml-auto">
+                                            <label class="btn btn-warning btn-lg stretched-link">
+                                                <i class="fa fa-pencil-alt fa-lg" aria-hidden="true">
+                                                    <input type="radio" name="crit-1" id="option1">
+                                                </i>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        Duración Registrada
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-text form-group">
+                                        <textarea class="form-control" rows="1" id="evaluation-time"></textarea>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <ul class="nav nav-pills card-header-pills">
+                                        <li class="nav-item ml-auto">
+                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                <i class="fa fa-check" aria-hidden="true">
+                                                    <input type="radio" name="crit-1" id="option1">
+                                                </i>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        Evaluadores
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            Evaluadorina Sabrina
+                                        </li>
+                                        <li class="list-group-item">
+                                            Evaluadoroso Donoso
+                                        </li>
+                                        <li class="list-group-item">
+                                            Evaluadorazo Suazo
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <ul class="nav nav-pills card-header-pills">
+                                        <li class="nav-item ml-auto">
+                                            <label class="btn btn-warning btn-lg stretched-link">
+                                                <i class="fa fa-pencil-alt fa-lg" aria-hidden="true">
+                                                    <input type="radio" name="crit-1" id="option1">
+                                                </i>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="container-fluid mx-5 mt-4 px-0 border btn-group btn-group-toggle" data-toggle="buttons" id="rubric-description-container">
+                            <table class="table table-responsive-xl table-stripped" id="rubric-description-table">
+                                <thead class="thead-light" id="rubric-description-table-header">
+                                    <tr class="text-center">
+                                        <th scope="row" id="rubric-description-header-main">
+                                            Criterio
+                                        </th>
+                                        <th scope="row" id="rubric-description-header-number">
+                                            0.0
+                                        </th>
+                                        <th scope="row" id="rubric-description-header-number">
+                                            0.3
+                                        </th>
+                                        <th scope="row" id="rubric-description-header-number">
+                                            0.7
+                                        </th>
+                                        <th scope="row" id="rubric-description-header-number">
+                                            1.0
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rubric-description-table-body">
+                                    <tr>
+                                        <th scope="row" class="text-center">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3>
+                                                        1
+                                                    </h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Presentación
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Calidad de presentación y demo.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <div class="card text-center">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Mala
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Muchos errores ortográficos. Sin explicaciones. No se entiende lo que dicen.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Intermedia
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Algunos errores ortográficos. Explicaciones confusas. Se entiende la idea.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Buena
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Pocos errores ortográficos. Buenas explicaciones. Se entiende la reflexión del trabajo.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Excelente
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Sin errores ortográficos. Buenas explicaciones. Se entiende el trabajo completo.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-center">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3>
+                                                        2
+                                                    </h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Datos
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Modelo de datos de la aplicación.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <div class="card text-center">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Ninguno
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        No se incluye el modelo de datos.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Incompleto
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Se incluye el modelo de datos, pero no hay explicaciones en la documentación de por qué es como es.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center d-none">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Title
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Body
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Completo
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Se incluye el modelo de datos, se explican las relaciones inportantes y su motivación.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-center">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3>
+                                                        3
+                                                    </h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Funcionalidad
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Completitud de requisitos solicitados
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <div class="card text-center d-none">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Title
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Body
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center d-none">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Title
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Body
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Incompleta
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Se cumplen casi todos los requisitos pedidos. Las excepciones no son muy importantes.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Completa
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Se cumplen todos los requisitos pedidos.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-center">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3>
+                                                        4
+                                                    </h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Estilo
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Elegancia del estilo de la demo
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <div class="card text-center">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Básico
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        La interfaz es entendible.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Avanzado
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Se vé preocupación en el diseño de la interfaz.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center d-none">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Title
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Body
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="card text-center d-none">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        Title
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        Body
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <ul class="nav nav-pills card-header-pills">
+                                                        <li class="nav-item ml-auto">
+                                                            <label class="btn btn-outline-info btn-lg stretched-link">
+                                                                <i class="fa fa-check" aria-hidden="true">
+                                                                    <input type="radio" name="crit-1" id="option1">
+                                                                </i>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /Evaluation -->
+
+                </div>
+                <!-- /Page -->
+
+            </div>
+            <!-- /Content -->
+        </div>
+    </div>
     
     <!-- Bootstrap's Javascript Dependencies -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -28,8 +842,8 @@
     <!-- Fontawesome's Javascript Dependencies-->
     <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
     
-    <!-- Custom's Javascript Dependencies -->
-    <script src="./script.js"></script>
+    <!-- Sidebar Script -->
+    <script src="js/sidebar.js"></script>
     
 </body>
 </html>

@@ -1,0 +1,281 @@
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+/*
+General configurations
+*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body
+{
+    /*
+    Adjusts the body to screen size
+    */
+    height: 100%;
+    width: 100%;
+    /*
+    Adds a cool google font
+    */
+    font-family: 'Poppins', sans-serif;
+    /*
+    Sets the default font color
+    */
+    color: #222;
+}
+
+/*
+Links style
+*/
+a, a:hover, a:focus {
+    /*
+    Makes the link's text font-colored instead of the 
+    default blue
+    */
+    color: inherit;
+    /*
+    Removes link underlines
+    */
+    text-decoration: none;
+    /*
+    Adds a delay to the transition of colors when hovering 
+    over a link
+    */
+    transition: all 0.3s;
+}
+
+/*
+Sign out button style
+*/
+
+#sign-out-button
+{
+    /*
+    Ensures the button's text and icon can always be read
+    */
+    min-width: 9em;
+}
+
+.fa-sign-out-alt
+{
+    /*
+    Increases the margin, so it looks centered
+    */
+    margin-top: 4px;
+    margin-left: 5px;
+    /*
+    Increases the icon size
+    */
+    font-size: 120%;
+}
+
+/*
+Sidebar toggle button style
+*/
+
+.navbar-toggler
+{
+    /*
+    Changes the color of the sidebar's button
+    */
+    background-color: #7386D5;
+}
+
+/*
+Sidebar transition behaviour
+*/
+
+#sidebar-wrapper 
+{
+    /*
+    Adds a minimum height to the sidebar, so even if the 
+    page shrinks it always has some space
+    */
+    min-height: 100vh;
+    min-width: 16.66em;
+    /*
+    Hides the sidebar by default, displacing it by it's 
+    own width (enough for the text inside) to the left
+    */
+    margin-left: -16.66em;
+    /*
+    Sets the transition delay
+    */
+    transition: all 0.3s;
+}
+
+#wrapper.toggled #sidebar-wrapper 
+{
+    /*
+    When toggled, the sidebar transitions back into 
+    having it's left margin at the screen's border, like 
+    any normal container
+    */
+    margin-left: 0;
+}
+
+/*
+Sidebar transition behaviour at different screen sizes
+*/
+
+@media (max-width: 768px) 
+{
+    /*
+    This guarantees that the sidebar remains permanently 
+    active quen the screen size is small or extra-small
+    */
+    #sidebar-wrapper
+    {
+        min-height: 0;
+        margin-left: 0;
+    }
+
+    #wrapper.toggled #sidebar-wrapper
+    {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1600px) 
+{
+    /*
+    The sidebar's width changes from 16.66em to 16.666% 
+    of the screen width on extra-large sizes, so the
+    margin of it's transition needs to be fixed
+    */
+    #sidebar-wrapper 
+    {
+        margin-left: -16.666%;
+    }
+}
+
+/*
+Sidebar style
+*/
+
+#sidebar-wrapper {
+    /*
+    Removes default padding
+    */
+    padding: 0;
+    /*
+    Sets the background color
+    */
+    background: #7386D5;
+    /*
+    Sets the font
+    */
+    color: #fff;
+}
+
+#sidebar-wrapper .sidebar-heading
+{
+    /*
+    Pads the text
+    */
+    padding: 0.875rem 1.25rem;
+    /*
+    Makes the background a little darker
+    */
+    background: #6d7fcc;
+}
+
+#sidebar-wrapper .list-group 
+{
+    /*
+    Pads the group on the top and bottom
+    */
+    padding: 10px 0;
+    /*
+    Adds a order line at the bottom
+    */
+    border-bottom: 1px solid #47748b;
+    /*
+    Changes the background color for the group, it can 
+    be seen in the padded area
+    */
+    background: #7386D5;
+}
+
+#sidebar-wrapper .list-group .list-group-item
+{
+    /*
+    Sets the default background color for the items
+    */
+    background: #7386D5;
+    /*
+    Decreaces the padding
+    */
+    padding: 20px;
+    /*
+    Displaces the text to the right
+    */
+    padding-left: 30px !important;
+}
+
+#sidebar-wrapper .list-group .list-group-item a{
+    /*
+    Changes the link's color and font
+    */
+    font-size: 0.9em !important;
+    color: #fff;
+}
+
+#sidebar-wrapper .list-group-item.selected, #sidebar-wrapper .list-group-item:hover
+{
+    /*
+    Changes the color of the options on hover and selection
+    */
+    background: #6d7fcc;
+}
+
+/*
+Content Style
+*/
+
+#page-content-wrapper, #page-wrapper
+{
+    /*
+    Removes default padding
+    */
+    padding: 0;
+}
+
+#course-identifier, #group-identifier, #rubric-identifier, #status-locker
+{
+    min-width: 20em;
+}
+
+#rubric-description-table-body .card-title
+{
+    font-size: 1em;
+    text-align: start;
+}
+
+#rubric-description-table-body .card-text
+{
+    font-size: .8em;
+}
+
+#rubric-description-header-number, td .card
+{
+    min-width: 15em;
+}
+
+#rubric-description-header-main, th .card
+{
+    min-width: 16em;
+}
