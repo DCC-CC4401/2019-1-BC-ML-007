@@ -31,15 +31,14 @@
                 "sidebar-wrapper" is the id javascript targets to toggle it.
             -->
             <div class="col-12 col-md-3 col-lg-2 border-right" id="sidebar-wrapper">
-                <!--
-                    Heading
-                -->
+
+                <!-- Heading -->
                 <h1 class="navbar navbar-light sidebar-heading">
-                    Servicios <button type="button" class="btn bg-light btn-lg navbar-toggler-icon d-md-none" data-toggle="collapse" data-target="#sidebar-items"></button></button>
+                    Servicios 
+                    <button type="button" class="btn bg-light btn-lg navbar-toggler-icon d-md-none" data-toggle="collapse" data-target="#sidebar-items"></button></button>
                 </h1>
-                <!--
-                    Links
-                -->
+
+                <!-- Links -->
                 <div class="col-12 list-group list-group-flush collapse show" id="sidebar-items">
                     <nav class="list-group-item list-group-item-action selected">
                         <a href="#">
@@ -141,18 +140,22 @@
                                 <label class="btn btn-outline-info btn-lg">
                                     <input type="radio" name="courses" id="option1">
                                     Grupo 1
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
                                 </label>
                                 <label class="btn btn-outline-info btn-lg">
-                                        <input type="radio" name="courses" id="option2">
+                                    <input type="radio" name="courses" id="option2">
                                     Grupo 2
+                                    <span class="spinner-border spinner-border-sm"></span>
                                 </label>
                                 <label class="btn btn-outline-info btn-lg">
                                     <input type="radio" name="courses" id="option3">
                                     Grupo 3
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
                                 </label>
                                 <label class="btn btn-outline-info btn-lg">
                                     <input type="radio" name="courses" id="option4">
                                     Grupo 4
+                                    <span class="spinner-border spinner-border-sm"></span>
                                 </label>
                         </div>
                         <!-- Edit Groups -->
@@ -323,6 +326,11 @@
                                 </div>
                                 <div class="card-footer">
                                     <ul class="nav nav-pills card-header-pills">
+                                        <li class="nav-title">
+                                            <h4 class="card-text pl-4 pt-3">
+                                                Descuento?
+                                            </h4>
+                                        </li>
                                         <li class="nav-item ml-auto">
                                             <label class="btn btn-outline-info btn-lg stretched-link">
                                                 <i class="fa fa-check" aria-hidden="true">
@@ -346,12 +354,14 @@
                                     <ul class="list-group">
                                         <li class="list-group-item">
                                             Evaluadorina Sabrina
+                                            <span class="spinner-border spinner-border-sm"></span>
                                         </li>
                                         <li class="list-group-item">
                                             Evaluadoroso Donoso
                                         </li>
                                         <li class="list-group-item">
                                             Evaluadorazo Suazo
+                                            <span class="spinner-border spinner-border-sm"></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -368,6 +378,42 @@
                                 </div>
                             </div>
                             <!-- /Evaluators Card -->
+
+                            <!-- Group Card -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        Grupo
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="btn list-group-item">
+                                            Presentador Gonsalez
+                                        </li>
+                                        <li class="btn list-group-item">
+                                            Presentadora Dora
+                                            <i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
+                                        </li>
+                                        <li class="btn list-group-item">
+                                            Presentadorosa Diaz
+                                            <span class="spinner-border spinner-border-sm"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <ul class="nav nav-pills card-header-pills">
+                                        <li class="nav-item ml-auto">
+                                            <label class="btn btn-warning btn-lg stretched-link">
+                                                <i class="fa fa-pencil-alt fa-lg" aria-hidden="true">
+                                                    <input type="radio" name="crit-1" id="option1">
+                                                </i>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /Group Card -->
 
                         </div>
                     </div>
@@ -846,6 +892,59 @@
                         </div>
                     </div>
                     <!-- /Rubric Table -->
+
+                    <!-- Save Button -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <ul class="nav nav-pills card-header-pills">
+                                        <li class="nav-item pl-3 pt-2">
+                                            <h2>
+                                                Guardar Evaluación?
+                                            </h2>
+                                        </li>
+                                        <li class="nav-item ml-auto mr-4 mb-0">
+                                            <button type="button" class="btn btn-success btn-lg stretched-link" data-toggle="modal" data-target="#myModal">
+                                                <i class="fa fa-check fa-lg" aria-hidden="true">
+                                                </i>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Save Button -->
+
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">
+                                        Confirmar Evaluación
+                                    </h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Está seguro de que quiere guardar los resultados de la evaluación?
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success mr-auto" data-dismiss="modal">
+                                        <i class="fa fa-check fa-lg" aria-hidden="true">
+                                        </i>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <!-- /Page -->
