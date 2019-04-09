@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/evaluate.css">
+    
+    <title>Descarga de Resúmenes de Evaluación (Evaluadores)</title>
+</head>
+<body>
+
+    <div class="container-fluid" id="wrapper">
+        <div class="row">
+            <!--
+            This row contains the entire document, since containers can be nested that's not a problem.
+            This is necesary so that the sidebar envelops the entirety of the left side of the screen.
+            -->
+
+
+
+            <!-- Sidebar -->
+            <!-- 
+                This entire column transitions from hiding on the left of the screen into occupying 25% of it (16.66% on large screens).
+                "border-right" gives it a border line on it's right side.
+                "sidebar-wrapper" is the id javascript targets to toggle it.
+            -->
+            <div class="col-12 col-md-3 col-lg-2 border-right" id="sidebar-wrapper">
+
+                <!-- Heading -->
+                <h1 class="navbar navbar-light sidebar-heading">
+                    Servicios 
+                    <button type="button" class="btn bg-light btn-lg navbar-toggler-icon d-md-none" data-toggle="collapse" data-target="#sidebar-items"></button></button>
+                </h1>
+
+                <!-- Links -->
+                <div class="col-12 list-group list-group-flush collapse show" id="sidebar-items">
+                    <nav class="list-group-item list-group-item-action selected">
+                        <a href="#">
+                            Evaluaciones
+                        </a>
+                    </nav>
+                    <nav class="list-group-item list-group-item-action">
+                        <a href="#">
+                            Cursos
+                        </a>
+                    </nav>
+                    <nav class="list-group-item list-group-item-action">
+                        <a href="#">
+                            Evaluadores
+                        </a>
+                    </nav>
+                    <nav class="list-group-item list-group-item-action">
+                        <a href="#">
+                            Rúbricas
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            <!-- /Sidebar -->
+
+            <!-- Content -->
+            <!--
+                This column contains the top navbar, and the entire document after that, it dynamically adjusts to the sidebar's shennanigans
+            -->
+            <div class="col bg-white border-left order-last" id="page-content-wrapper">
+
+                <!-- Navbar -->
+                <div class="container-fluid sticky-top">
+                    <div class="row navbar navbar-light border-bottom bg-light">
+                        <div class="col-1 col-md-2 mr-auto d-none d-md-block order-md-first">
+                            <button class="navbar-toggler" type="button" id="menu-toggle">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                        <div class="col-5 col-sm-4 col-md-2 col-lg-2 col-xl-1 ml-auto order-last py-2" id="sign-out-button">
+                            <button class="btn btn-md btn-danger" type="button">
+                                <span class="font-weight-bold">
+                                    Leave
+                                </span>
+                                <i class="fa fa-sign-out-alt fa-lg ml-1 mr-0" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="col-7 col-md-6 mx-auto text-center pt-2 py-md-2">
+                            <h1 id="main-title">
+                                Evaluación
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Navbar -->
+
+                <!-- Page -->
+                <div class="container-fluid">
+
+                    <!-- Course Indicator -->
+                    <div class="row border-bottom py-1">
+                        <!-- Title -->
+                        <div class="col-12 col-md-4 col-lg-3 col-xl-2 pt-2 pl-2" id="course-identifier">
+                            <h2>
+                                Código del Curso:
+                            </h2>
+                        </div>
+                        <!-- Course Code -->
+                        <div class="col-8 col-md-4 col-lg-3 col-xl-2 py-1">
+                            <div class="container pl-0 ml-0">
+                                <div class="card">
+                                    <div class="card-body pt-1 pb-0">
+                                        <h2>
+                                            CC4342
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Course Indicator -->
+
+                    <!-- Group Selector-->
+                    <div class="row border-bottom bg-light py-1">
+                        <!-- Title -->
+                        <div class="col-12 col-md-4 col-lg-3 col-xl-2 pt-1" id="group-identifier">
+                            <h2>
+                                Grupo:
+                            </h2>
+                        </div>
+                        <!-- Group Options -->
+                        <div class="col-12 col-sm-8 col-md-4 col-lg-6 btn-group-toggle ml-0 pt-1" data-toggle="buttons">
+                            <label class="btn btn-outline-info btn-lg">
+                                <input type="radio" name="courses" id="option1">
+                                Grupo 1
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            </label>
+                            <label class="btn btn-outline-info btn-lg active">
+                                <input type="radio" name="courses" id="option2">
+                                Grupo 2
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            </label>
+                            <label class="btn btn-outline-info btn-lg">
+                                <input type="radio" name="courses" id="option3">
+                                Grupo 3
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            </label>
+                            <label class="btn btn-outline-info btn-lg">
+                                <input type="radio" name="courses" id="option4">
+                                Grupo 4
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /Group Selector -->
+
+                    <!-- Save Button -->
+                    <div class="row">
+                        <div class="col-12 pt-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <ul class="nav nav-pills card-header-pills">
+                                        <li class="nav-item pl-3 pt-2">
+                                            <h2>
+                                                Descargar Resumen
+                                            </h2>
+                                        </li>
+                                        <li class="nav-item ml-auto mr-4 mb-0">
+                                            <button type="button" class="btn btn-success btn-lg stretched-link">
+                                                <i class="fa fa-download" aria-hidden="true"></i>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Save Button -->
+
+                </div>
+                <!-- /Page -->
+
+            </div>
+            <!-- /Content -->
+            
+        </div>
+    </div>
+    
+    <!-- Bootstrap's Javascript Dependencies -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- Fontawesome's Javascript Dependencies-->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+    
+    <!-- Sidebar Script -->
+    <script src="js/sidebar.js"></script>
+    
+</body>
+</html>
